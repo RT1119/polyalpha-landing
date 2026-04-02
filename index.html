@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PolyAlpha — Polymarket 全自動交易機器人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-start: #0a0014;
+    --bg-end: #1a0030;
+    --accent-purple: #8b5cf6;
+    --accent-cyan: #06b6d4;
+    --glass-bg: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.1);
+    --glass-border-hover: rgba(255,255,255,0.25);
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(255,255,255,0.6);
+    --text-muted: rgba(255,255,255,0.4);
+    --gradient-accent: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Animated mesh background ── */
+  .mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .mesh-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+    will-change: transform;
+  }
+
+  .blob-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+    top: -10%; left: -10%;
+    animation: float1 20s ease-in-out infinite;
+  }
+  .blob-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+    top: 40%; right: -15%;
+    animation: float2 25s ease-in-out infinite;
+  }
+  .blob-3 {
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+    bottom: -5%; left: 30%;
+    animation: float3 22s ease-in-out infinite;
+  }
+  .blob-4 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+    top: 60%; left: -5%;
+    animation: float4 18s ease-in-out infinite;
+  }
+
+  @keyframes float1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(80px, 60px) scale(1.1); }
+    66% { transform: translate(-40px, 100px) scale(0.95); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-70px, -50px) scale(1.05); }
+    66% { transform: translate(50px, 60px) scale(0.9); }
+  }
+  @keyframes float3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(60px, -70px) scale(1.08); }
+    66% { transform: translate(-80px, -30px) scale(0.92); }
+  }
+  @keyframes float4 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, 80px) scale(1.12); }
+    66% { transform: translate(90px, -20px) scale(0.88); }
+  }
+
+  /* ── Layout ── */
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Glass card mixin ── */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+
+  .nav-logo {
+    font-size: 22px;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: var(--accent-purple);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 60px 0 50px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent-cyan);
+    margin-bottom: 24px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+  }
+
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 .gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-tagline {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+
+  .hero-tagline strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ── CTA Button ── */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.25), 0 0 60px rgba(6, 182, 212, 0.1);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4), 0 0 80px rgba(6, 182, 212, 0.2), 0 8px 32px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .cta-btn:active { transform: translateY(0); }
+
+  .cta-btn svg { width: 18px; height: 18px; }
+
+  .cta-sub {
+    display: block;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ── Stats ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 50px 0;
+  }
+
+  .stat-card {
+    padding: 24px 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: radial-gradient(ellipse at top, rgba(139,92,246,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .stat-value {
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Section ── */
+  .section {
+    margin: 60px 0;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 5vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  /* ── How it works ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .step-card {
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .step-card:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateY(-2px);
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(6,182,212,0.2));
+    border: 1px solid rgba(139,92,246,0.3);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-purple);
+    margin-bottom: 16px;
+  }
+
+  .step-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .step-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  /* ── Features ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .feature-card {
+    padding: 24px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .feature-card:hover {
+    border-color: var(--glass-border-hover);
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 22px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(6,182,212,0.12));
+    border: 1px solid rgba(139,92,246,0.15);
+  }
+
+  .feature-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .feature-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── Pricing ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .price-card {
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .price-card:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateY(-2px);
+  }
+
+  .price-card.popular {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: transparent;
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Gradient border glow animation for popular plan */
+  .price-card.popular::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 17px;
+    padding: 1px;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4, #8b5cf6, #06b6d4);
+    background-size: 300% 300%;
+    animation: border-glow 4s ease-in-out infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .price-card.popular::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4, #8b5cf6);
+    background-size: 300% 300%;
+    animation: border-glow 4s ease-in-out infinite;
+    filter: blur(15px);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes border-glow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .price-card > * { position: relative; z-index: 1; }
+
+  .popular-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: var(--gradient-accent);
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .price-period {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+  }
+
+  .price-amount {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 4px;
+  }
+
+  .price-card.popular .price-amount {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .price-original {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    margin-bottom: 6px;
+  }
+
+  .price-save {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #10b981;
+    background: rgba(16,185,129,0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+
+  .price-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .price-btn.outline {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+  }
+
+  .price-btn.outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--glass-border-hover);
+  }
+
+  .price-btn.filled {
+    background: var(--gradient-accent);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(139,92,246,0.3);
+  }
+
+  .price-btn.filled:hover {
+    box-shadow: 0 0 30px rgba(139,92,246,0.5);
+    transform: translateY(-1px);
+  }
+
+  /* ── Urgency ── */
+  .urgency-bar {
+    padding: 20px 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .urgency-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(6,182,212,0.06));
+    pointer-events: none;
+  }
+
+  .urgency-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+  }
+
+  .urgency-text strong {
+    color: #f59e0b;
+    font-weight: 700;
+  }
+
+  .urgency-text .count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: #f59e0b;
+    font-weight: 800;
+    font-size: 18px;
+    padding: 2px 10px;
+    border-radius: 8px;
+    margin: 0 4px;
+  }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+
+  .final-cta p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-size: 18px;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .footer-disclaimer {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: 1fr; gap: 12px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+    .hero { padding: 40px 0 30px; }
+    .section { margin: 40px 0; }
+    .price-amount { font-size: 30px; }
+  }
+
+  /* ── Grain overlay ── */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.2), rgba(6,182,212,0.2), transparent);
+    margin: 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="grain"></div>
+<div class="mesh-bg">
+  <div class="mesh-blob blob-1"></div>
+  <div class="mesh-blob blob-2"></div>
+  <div class="mesh-blob blob-3"></div>
+  <div class="mesh-blob blob-4"></div>
+</div>
+
+<div class="page-wrapper">
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-logo">PolyAlpha</div>
+    <div class="nav-badge">BETA</div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      系統運行中 &mdash; 即時交易
+    </div>
+    <h1>
+      自動化交易<br>
+      <span class="gradient-text">Polymarket</span>
+    </h1>
+    <p class="hero-tagline">
+      <strong>96.8% 勝率</strong>，全自動掃描、執行、結算。<br>
+      透過 Telegram 操作，一鍵啟動。
+    </p>
+    <a href="https://t.me/polymaker1119_bot" class="cta-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.97 1.25-5.56 3.69-.53.36-1 .54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.74 3.98-1.73 6.64-2.88 7.97-3.44 3.79-1.58 4.58-1.86 5.09-1.87.11 0 .37.03.54.17.14.12.18.28.2.47-.01.06.01.24 0 .38z"/></svg>
+      開始使用
+    </a>
+    <span class="cta-sub">免費註冊 &middot; 透過 Telegram 操作</span>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card glass">
+      <div class="stat-value">1,287</div>
+      <div class="stat-label">交易次數</div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-value">96.8%</div>
+      <div class="stat-label">勝率</div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-value">+$272</div>
+      <div class="stat-label">歷史損益</div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-value">18天</div>
+      <div class="stat-label">運行時間</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-label">運作流程</div>
+    <h2 class="section-title">三步完成交易</h2>
+    <p class="section-desc">從市場掃描到持倉結算，全程自動。</p>
+    <div class="steps">
+      <div class="step-card glass">
+        <div class="step-num">1</div>
+        <span class="step-icon">🔍</span>
+        <div class="step-title">掃描</div>
+        <div class="step-desc">24/7 掃描 Polymarket 接近結算的市場</div>
+      </div>
+      <div class="step-card glass">
+        <div class="step-num">2</div>
+        <span class="step-icon">⚡</span>
+        <div class="step-title">執行</div>
+        <div class="step-desc">偵測到機會自動下單，或推送通知讓你確認</div>
+      </div>
+      <div class="step-card glass">
+        <div class="step-num">3</div>
+        <span class="step-icon">💰</span>
+        <div class="step-title">結算</div>
+        <div class="step-desc">市場結束自動結算，USDC 直接回到錢包</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="section-label">核心功能</div>
+    <h2 class="section-title">交易自動化工具</h2>
+    <p class="section-desc">Polymarket 預測市場的自動化執行工具。</p>
+    <div class="features-grid">
+      <div class="feature-card glass">
+        <div class="feature-icon">📡</div>
+        <div class="feature-title">市場信號</div>
+        <div class="feature-desc">免費接收市場掃描結果，涵蓋 crypto、天氣、體育等類別</div>
+      </div>
+      <div class="feature-card glass">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">全自動交易</div>
+        <div class="feature-desc">24/7 不間斷執行，無需手動操作</div>
+      </div>
+      <div class="feature-card glass">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">損益追蹤</div>
+        <div class="feature-desc">每日自動推送損益摘要，按類別顯示勝率</div>
+      </div>
+      <div class="feature-card glass">
+        <div class="feature-icon">⚙️</div>
+        <div class="feature-title">自訂參數</div>
+        <div class="feature-desc">調整風險額度、策略偏好、過濾條件</div>
+      </div>
+      <div class="feature-card glass">
+        <div class="feature-icon">🔐</div>
+        <div class="feature-title">你的錢包</div>
+        <div class="feature-desc">資金留在你的錢包，我們不託管任何資產</div>
+      </div>
+      <div class="feature-card glass">
+        <div class="feature-icon">🎁</div>
+        <div class="feature-title">推薦獎勵</div>
+        <div class="feature-desc">推薦朋友，雙方各得 3 天免費 Premium</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Pricing -->
+  <section class="section">
+    <div class="section-label">方案與定價</div>
+    <h2 class="section-title">早鳥限時優惠</h2>
+    <p class="section-desc">所有方案功能完全相同，差異僅在訂閱時長。</p>
+
+    <div class="pricing-grid">
+      <!-- 7-day -->
+      <div class="price-card glass">
+        <div class="price-period">7 天</div>
+        <div class="price-original">$29.9</div>
+        <div class="price-amount">$14.9</div>
+        <div class="price-save">省 50%</div>
+        <a href="https://t.me/polymaker1119_bot" class="price-btn outline" target="_blank" rel="noopener">開始試用</a>
+      </div>
+
+      <!-- 30-day (popular) -->
+      <div class="price-card glass popular">
+        <div class="popular-badge">最受歡迎</div>
+        <div class="price-period">30 天</div>
+        <div class="price-original">$109.9</div>
+        <div class="price-amount">$54.9</div>
+        <div class="price-save">省 50%</div>
+        <a href="https://t.me/polymaker1119_bot" class="price-btn filled" target="_blank" rel="noopener">立即訂閱</a>
+      </div>
+
+      <!-- 90-day -->
+      <div class="price-card glass">
+        <div class="price-period">90 天</div>
+        <div class="price-original">$299.9</div>
+        <div class="price-amount">$149.9</div>
+        <div class="price-save">省 50%</div>
+        <a href="https://t.me/polymaker1119_bot" class="price-btn outline" target="_blank" rel="noopener">長期方案</a>
+      </div>
+    </div>
+
+    <div class="urgency-bar glass">
+      <div class="urgency-text">
+        <strong>前 20 名享早鳥優惠</strong> &mdash; 剩餘名額 <span class="count">18</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>開始使用<br><span style="background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">PolyAlpha</span></h2>
+    <p>透過 Telegram 操作，免費接收信號或訂閱自動交易。</p>
+    <a href="https://t.me/polymaker1119_bot" class="cta-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.97 1.25-5.56 3.69-.53.36-1 .54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.74 3.98-1.73 6.64-2.88 7.97-3.44 3.79-1.58 4.58-1.86 5.09-1.87.11 0 .37.03.54.17.14.12.18.28.2.47-.01.06.01.24 0 .38z"/></svg>
+      立即開始
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">PolyAlpha</div>
+    <p class="footer-disclaimer">
+      <strong>風險揭露：</strong>預測市場交易涉及風險，可能導致本金損失。<br>
+      歷史表現不代表未來結果，勝率數據基於過去交易紀錄，不保證未來表現。<br>
+      請僅以可承受損失的資金參與。本服務為交易工具，不構成任何投資建議。
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
