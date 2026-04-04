@@ -7,7 +7,7 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="PolyAlpha — Automated Polymarket Trading">
-<meta property="og:description" content="96.8% win rate | 1,287+ trades | Fully automated 24/7 scanning & execution | Self-custody USDC wallet">
+<meta property="og:description" content="96.7% win rate | 1,287+ trades | $5K to $6K in 20 days | Fully automated Polymarket trading">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rt1119.github.io/polyalpha-landing/">
 <meta property="og:image" content="https://rt1119.github.io/polyalpha-landing/og-image.png">
@@ -739,8 +739,8 @@
       <span class="gradient-text">Polymarket</span>
     </h1>
     <p class="hero-tagline">
-      <strong>96.8% 勝率</strong>，全自動掃描、執行、結算。<br>
-      透過 Telegram 操作，一鍵啟動。
+      <strong>96.7% 勝率</strong>，$5,000 本金 20 天賺 <strong>+$1,001</strong>。<br>
+      全自動掃描、執行、結算。透過 Telegram 操作。
     </p>
     <a href="https://t.me/polymaker1119_bot" class="cta-btn" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.97 1.25-5.56 3.69-.53.36-1 .54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.74 3.98-1.73 6.64-2.88 7.97-3.44 3.79-1.58 4.58-1.86 5.09-1.87.11 0 .37.03.54.17.14.12.18.28.2.47-.01.06.01.24 0 .38z"/></svg>
@@ -756,16 +756,64 @@
       <div class="stat-label">交易次數</div>
     </div>
     <div class="stat-card glass">
-      <div class="stat-value" id="stat-winrate">96.8%</div>
+      <div class="stat-value" id="stat-winrate">96.7%</div>
       <div class="stat-label">勝率</div>
     </div>
     <div class="stat-card glass">
-      <div class="stat-value" id="stat-profit">+$272</div>
-      <div class="stat-label">歷史損益</div>
+      <div class="stat-value" id="stat-profit">+$1,001</div>
+      <div class="stat-label">模擬損益</div>
     </div>
     <div class="stat-card glass">
-      <div class="stat-value" id="stat-days">18天</div>
+      <div class="stat-value" id="stat-days">20天</div>
       <div class="stat-label">運行時間</div>
+    </div>
+  </div>
+
+  <!-- Performance Dashboard -->
+  <div class="section">
+    <div class="section-label">績效追蹤</div>
+    <h2 class="section-title">即時表現</h2>
+    <p class="section-desc">模擬設定：$5,000 本金 / $50 單筆。數據每日更新。</p>
+
+    <!-- Summary row -->
+    <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin: 20px 0;">
+      <div class="stat-card glass">
+        <div class="stat-value" id="perf-equity">$6,001</div>
+        <div class="stat-label">目前淨值</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-value" id="perf-return">+20.0%</div>
+        <div class="stat-label">總報酬率</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-value" id="perf-daily">$50/天</div>
+        <div class="stat-label">日均損益</div>
+      </div>
+    </div>
+
+    <!-- Equity chart (pure CSS) -->
+    <div class="glass" style="padding: 24px; margin: 20px 0;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+        <span style="font-size: 14px; font-weight: 600;">淨值曲線</span>
+        <span style="font-size: 12px; color: var(--text-muted);" id="perf-updated">更新時間：--</span>
+      </div>
+      <div id="equity-chart" style="display: flex; align-items: flex-end; gap: 2px; height: 120px; overflow: hidden;"></div>
+      <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+        <span style="font-size: 11px; color: var(--text-muted);" id="chart-start">--</span>
+        <span style="font-size: 11px; color: var(--text-muted);" id="chart-end">--</span>
+      </div>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="glass" style="padding: 24px; margin: 20px 0;">
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">類別表現</div>
+      <div id="cat-table"></div>
+    </div>
+
+    <!-- Daily log -->
+    <div class="glass" style="padding: 24px; margin: 20px 0; max-height: 300px; overflow-y: auto;">
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">每日紀錄</div>
+      <div id="daily-table"></div>
     </div>
   </div>
 
@@ -908,13 +956,94 @@
 
 <script>
 (function() {
+  var CAT_NAMES = {crypto:'加密貨幣', politics:'政治', weather:'天氣', sports:'體育', other:'其他'};
+  var CAT_ICONS = {crypto:'₿', politics:'🏛', weather:'🌤', sports:'⚽', other:'📦'};
+
   fetch('stats.json?' + Date.now())
     .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
     .then(function(s) {
+      // Top stats
       document.getElementById('stat-trades').textContent = s.total_trades.toLocaleString();
       document.getElementById('stat-winrate').textContent = s.win_rate + '%';
       document.getElementById('stat-profit').textContent = (s.total_profit >= 0 ? '+$' : '-$') + Math.abs(s.total_profit).toLocaleString();
       document.getElementById('stat-days').textContent = s.days_running + '天';
+
+      // Performance summary
+      document.getElementById('perf-equity').textContent = '$' + s.final_equity.toLocaleString();
+      document.getElementById('perf-return').textContent = (s.return_pct >= 0 ? '+' : '') + s.return_pct + '%';
+      document.getElementById('perf-daily').textContent = '$' + s.daily_avg_pnl + '/天';
+      document.getElementById('perf-updated').textContent = '更新：' + s.updated_at;
+
+      // Equity chart
+      if (s.daily && s.daily.length > 0) {
+        var chart = document.getElementById('equity-chart');
+        var eqs = s.daily.map(function(d) { return d.equity; });
+        var minE = Math.min.apply(null, eqs) * 0.95;
+        var maxE = Math.max.apply(null, eqs) * 1.02;
+        var range = maxE - minE || 1;
+
+        s.daily.forEach(function(d) {
+          var bar = document.createElement('div');
+          var h = Math.max(4, ((d.equity - minE) / range) * 110);
+          var color = d.pnl >= 0 ? 'rgba(16,185,129,0.7)' : 'rgba(239,68,68,0.7)';
+          bar.style.cssText = 'flex:1;min-width:4px;height:' + h + 'px;background:' + color +
+            ';border-radius:3px 3px 0 0;transition:all 0.3s;cursor:pointer;';
+          bar.title = d.date + ': ' + (d.pnl >= 0 ? '+' : '') + '$' + d.pnl.toFixed(0) +
+            ' (' + d.wins + 'W/' + d.losses + 'L) 淨值 $' + d.equity.toFixed(0);
+          chart.appendChild(bar);
+        });
+
+        document.getElementById('chart-start').textContent = s.daily[0].date;
+        document.getElementById('chart-end').textContent = s.daily[s.daily.length - 1].date;
+      }
+
+      // Category table
+      if (s.categories) {
+        var ct = document.getElementById('cat-table');
+        var html = '<div style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px 16px;font-size:13px;">';
+        html += '<div style="color:var(--text-muted);font-size:11px;">類別</div>';
+        html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">交易</div>';
+        html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">勝率</div>';
+        html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">損益</div>';
+        var cats = Object.keys(s.categories).sort(function(a,b) {
+          return s.categories[b].pnl - s.categories[a].pnl;
+        });
+        cats.forEach(function(c) {
+          var v = s.categories[c];
+          var pColor = v.pnl >= 0 ? '#10b981' : '#ef4444';
+          html += '<div>' + (CAT_ICONS[c]||'') + ' ' + (CAT_NAMES[c]||c) + '</div>';
+          html += '<div style="text-align:right;">' + v.trades + '</div>';
+          html += '<div style="text-align:right;">' + v.win_rate + '%</div>';
+          html += '<div style="text-align:right;color:' + pColor + ';">' +
+            (v.pnl >= 0 ? '+' : '') + '$' + v.pnl.toFixed(0) + '</div>';
+        });
+        html += '</div>';
+        ct.innerHTML = html;
+      }
+
+      // Daily table (newest first)
+      if (s.daily) {
+        var dt = document.getElementById('daily-table');
+        var html = '<div style="display:grid;grid-template-columns:auto 1fr auto auto auto;gap:6px 12px;font-size:12px;">';
+        html += '<div style="color:var(--text-muted);font-size:10px;">日期</div>';
+        html += '<div style="color:var(--text-muted);font-size:10px;">勝/敗</div>';
+        html += '<div style="color:var(--text-muted);font-size:10px;text-align:right;">筆數</div>';
+        html += '<div style="color:var(--text-muted);font-size:10px;text-align:right;">當日損益</div>';
+        html += '<div style="color:var(--text-muted);font-size:10px;text-align:right;">淨值</div>';
+        var days = s.daily.slice().reverse();
+        days.forEach(function(d) {
+          var pColor = d.pnl >= 0 ? '#10b981' : '#ef4444';
+          var wr = d.trades > 0 ? (d.wins / d.trades * 100).toFixed(0) : '0';
+          html += '<div style="color:var(--text-secondary);">' + d.date.slice(5) + '</div>';
+          html += '<div>' + d.wins + 'W/' + d.losses + 'L <span style="color:var(--text-muted);">(' + wr + '%)</span></div>';
+          html += '<div style="text-align:right;">' + d.trades + '</div>';
+          html += '<div style="text-align:right;color:' + pColor + ';font-weight:600;">' +
+            (d.pnl >= 0 ? '+' : '') + '$' + d.pnl.toFixed(0) + '</div>';
+          html += '<div style="text-align:right;color:var(--text-secondary);">$' + d.equity.toFixed(0) + '</div>';
+        });
+        html += '</div>';
+        dt.innerHTML = html;
+      }
     })
     .catch(function() { /* keep hardcoded fallback values */ });
 })();
