@@ -1,15 +1,15 @@
 {
-  "total_trades": 1409,
-  "win_rate": 96.7,
-  "total_profit": 1065.94,
-  "days_running": 22,
+  "total_trades": 1528,
+  "win_rate": 96.5,
+  "total_profit": 959.49,
+  "days_running": 23,
   "bankroll": 1000,
   "bet_size": 50,
-  "final_equity": 2065.94,
-  "return_pct": 106.6,
-  "daily_avg_pnl": 48.45,
+  "final_equity": 1959.49,
+  "return_pct": 95.9,
+  "daily_avg_pnl": 41.72,
   "max_drawdown_pct": 26.5,
-  "updated_at": "2026-04-06 01:00 UTC",
+  "updated_at": "2026-04-07 01:00 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -157,59 +157,67 @@
     },
     {
       "date": "2026-04-03",
-      "trades": 56,
-      "wins": 53,
+      "trades": 57,
+      "wins": 54,
       "losses": 3,
-      "pnl": -29.68,
-      "equity": 1939.59
+      "pnl": -27.65,
+      "equity": 1941.62
     },
     {
       "date": "2026-04-04",
-      "trades": 61,
-      "wins": 60,
+      "trades": 80,
+      "wins": 79,
       "losses": 1,
-      "pnl": 84.29,
-      "equity": 2023.88
+      "pnl": 126.17,
+      "equity": 2067.79
     },
     {
       "date": "2026-04-05",
-      "trades": 19,
-      "wins": 19,
+      "trades": 115,
+      "wins": 108,
+      "losses": 7,
+      "pnl": -114.73,
+      "equity": 1953.05
+    },
+    {
+      "date": "2026-04-06",
+      "trades": 3,
+      "wins": 3,
       "losses": 0,
-      "pnl": 42.06,
-      "equity": 2065.94
+      "pnl": 6.44,
+      "equity": 1959.49
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 444,
-      "wins": 433,
-      "win_rate": 97.5,
-      "pnl": 712.92
+      "trades": 473,
+      "wins": 458,
+      "win_rate": 96.8,
+      "pnl": 567.22
     },
     "other": {
-      "trades": 381,
-      "wins": 365,
-      "win_rate": 95.8,
-      "pnl": 20.36
+      "trades": 402,
+      "wins": 386,
+      "win_rate": 96.0,
+      "pnl": 65.35
     },
     "politics": {
-      "trades": 76,
-      "wins": 74,
-      "win_rate": 97.4,
-      "pnl": 65.87
+      "trades": 86,
+      "wins": 84,
+      "win_rate": 97.7,
+      "pnl": 86.24
     },
     "sports": {
-      "trades": 47,
-      "wins": 47,
+      "trades": 49,
+      "wins": 49,
       "win_rate": 100.0,
-      "pnl": 104.57
+      "pnl": 108.73
     },
     "weather": {
-      "trades": 461,
-      "wins": 444,
-      "win_rate": 96.3,
-      "pnl": 162.22
+      "trades": 518,
+      "wins": 498,
+      "win_rate": 96.1,
+      "pnl": 131.96
     }
   }
 }
