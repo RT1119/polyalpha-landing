@@ -1,15 +1,15 @@
 {
-  "total_trades": 1723,
+  "total_trades": 1755,
   "win_rate": 96.1,
-  "total_profit": 668.15,
+  "total_profit": 635.59,
   "days_running": 25,
   "bankroll": 5000,
   "bet_size": 50,
-  "final_equity": 5668.15,
-  "return_pct": 13.4,
-  "daily_avg_pnl": 26.73,
-  "max_drawdown_pct": 8.9,
-  "updated_at": "2026-04-08 18:00 UTC",
+  "final_equity": 5635.59,
+  "return_pct": 12.7,
+  "daily_avg_pnl": 25.42,
+  "max_drawdown_pct": 10.1,
+  "updated_at": "2026-04-08 19:00 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -189,11 +189,11 @@
     },
     {
       "date": "2026-04-07",
-      "trades": 66,
-      "wins": 54,
-      "losses": 12,
-      "pnl": -475.47,
-      "equity": 5666.09
+      "trades": 98,
+      "wins": 84,
+      "losses": 14,
+      "pnl": -508.03,
+      "equity": 5633.54
     },
     {
       "date": "2026-04-08",
@@ -201,21 +201,21 @@
       "wins": 1,
       "losses": 0,
       "pnl": 2.05,
-      "equity": 5668.15
+      "equity": 5635.59
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 529,
-      "wins": 502,
-      "win_rate": 94.9,
-      "pnl": 67.86
+      "trades": 551,
+      "wins": 522,
+      "win_rate": 94.7,
+      "pnl": 13.38
     },
     "other": {
-      "trades": 472,
-      "wins": 456,
-      "win_rate": 96.6,
-      "pnl": 220.24
+      "trades": 481,
+      "wins": 465,
+      "win_rate": 96.7,
+      "pnl": 239.82
     },
     "politics": {
       "trades": 95,
@@ -230,10 +230,10 @@
       "pnl": 108.73
     },
     "weather": {
-      "trades": 578,
-      "wins": 558,
+      "trades": 579,
+      "wins": 559,
       "win_rate": 96.5,
-      "pnl": 267.8
+      "pnl": 270.14
     }
   }
 }
