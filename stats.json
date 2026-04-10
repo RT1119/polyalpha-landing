@@ -1,15 +1,15 @@
 {
-  "total_trades": 1273,
+  "total_trades": 1274,
   "win_rate": 95.2,
-  "total_profit": -229.25,
+  "total_profit": -226.91,
   "days_running": 25,
   "bankroll": 5000,
   "bet_size": 50,
-  "final_equity": 4770.75,
-  "return_pct": -4.6,
-  "daily_avg_pnl": -9.17,
+  "final_equity": 4773.09,
+  "return_pct": -4.5,
+  "daily_avg_pnl": -9.08,
   "max_drawdown_pct": 12.1,
-  "updated_at": "2026-04-10 01:00 UTC",
+  "updated_at": "2026-04-10 02:00 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -197,11 +197,11 @@
     },
     {
       "date": "2026-04-08",
-      "trades": 33,
-      "wins": 32,
+      "trades": 34,
+      "wins": 33,
       "losses": 1,
-      "pnl": 21.34,
-      "equity": 4770.75
+      "pnl": 23.68,
+      "equity": 4773.09
     }
   ],
   "categories": {
@@ -230,10 +230,10 @@
       "pnl": 63.79
     },
     "weather": {
-      "trades": 403,
-      "wins": 387,
+      "trades": 404,
+      "wins": 388,
       "win_rate": 96.0,
-      "pnl": 88.58
+      "pnl": 90.92
     }
   }
 }
