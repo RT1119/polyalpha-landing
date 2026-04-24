@@ -956,8 +956,10 @@
 
 <script>
 (function() {
-  var CAT_NAMES = {crypto:'加密貨幣', politics:'政治', weather:'天氣', sports:'體育', other:'其他'};
-  var CAT_ICONS = {crypto:'₿', politics:'🏛', weather:'🌤', sports:'⚽', other:'📦'};
+  var CAT_NAMES = {crypto:'加密貨幣', politics:'政治', weather:'天氣', sports:'體育',
+    esports:'電競', finance:'金融', entertainment:'娛樂', tech:'科技', health:'健康', other:'其他'};
+  var CAT_ICONS = {crypto:'₿', politics:'🏛', weather:'🌤', sports:'⚽',
+    esports:'🎮', finance:'💹', entertainment:'🎬', tech:'💻', health:'🏥', other:'📦'};
 
   fetch('stats.json?' + Date.now())
     .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
@@ -1000,9 +1002,10 @@
       // Category table
       if (s.categories) {
         var ct = document.getElementById('cat-table');
-        var html = '<div style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px 16px;font-size:13px;">';
+        var html = '<div style="display:grid;grid-template-columns:1fr auto auto auto auto;gap:8px 16px;font-size:13px;">';
         html += '<div style="color:var(--text-muted);font-size:11px;">類別</div>';
         html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">交易</div>';
+        html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">勝/負</div>';
         html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">勝率</div>';
         html += '<div style="color:var(--text-muted);font-size:11px;text-align:right;">損益</div>';
         var cats = Object.keys(s.categories).sort(function(a,b) {
@@ -1011,10 +1014,13 @@
         cats.forEach(function(c) {
           var v = s.categories[c];
           var pColor = v.pnl >= 0 ? '#10b981' : '#ef4444';
-          html += '<div>' + (CAT_ICONS[c]||'') + ' ' + (CAT_NAMES[c]||c) + '</div>';
+          var w = v.wins || 0;
+          var l = v.losses || (v.trades - w);
+          html += '<div>' + (CAT_ICONS[c]||'📦') + ' ' + (CAT_NAMES[c]||c) + '</div>';
           html += '<div style="text-align:right;">' + v.trades + '</div>';
+          html += '<div style="text-align:right;">' + w + 'W/' + l + 'L</div>';
           html += '<div style="text-align:right;">' + v.win_rate + '%</div>';
-          html += '<div style="text-align:right;color:' + pColor + ';">' +
+          html += '<div style="text-align:right;color:' + pColor + ';font-weight:600;">' +
             (v.pnl >= 0 ? '+' : '') + '$' + v.pnl.toFixed(0) + '</div>';
         });
         html += '</div>';

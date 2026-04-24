@@ -9,7 +9,7 @@
   "return_pct": 10.3,
   "daily_avg_pnl": 12.91,
   "max_drawdown_pct": 8.5,
-  "updated_at": "2026-04-24 01:09 UTC",
+  "updated_at": "2026-04-24 01:20 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -340,33 +340,61 @@
       "win_rate": 96.0,
       "pnl": 244.18
     },
+    "entertainment": {
+      "trades": 54,
+      "wins": 53,
+      "losses": 1,
+      "win_rate": 98.1,
+      "pnl": 89.52
+    },
+    "esports": {
+      "trades": 78,
+      "wins": 71,
+      "losses": 7,
+      "win_rate": 91.0,
+      "pnl": -137.93
+    },
+    "finance": {
+      "trades": 15,
+      "wins": 15,
+      "losses": 0,
+      "win_rate": 100.0,
+      "pnl": 45.37
+    },
     "other": {
-      "trades": 238,
-      "wins": 233,
-      "losses": 5,
-      "win_rate": 97.9,
-      "pnl": 374.0
+      "trades": 143,
+      "wins": 141,
+      "losses": 2,
+      "win_rate": 98.6,
+      "pnl": 271.16
     },
     "politics": {
-      "trades": 86,
-      "wins": 82,
-      "losses": 4,
-      "win_rate": 95.3,
-      "pnl": 38.41
+      "trades": 73,
+      "wins": 70,
+      "losses": 3,
+      "win_rate": 95.9,
+      "pnl": 51.71
     },
     "sports": {
-      "trades": 96,
-      "wins": 87,
-      "losses": 9,
-      "win_rate": 90.6,
-      "pnl": -185.87
+      "trades": 49,
+      "wins": 45,
+      "losses": 4,
+      "win_rate": 91.8,
+      "pnl": -65.06
+    },
+    "tech": {
+      "trades": 12,
+      "wins": 11,
+      "losses": 1,
+      "win_rate": 91.7,
+      "pnl": -14.75
     },
     "weather": {
-      "trades": 359,
-      "wins": 344,
+      "trades": 355,
+      "wins": 340,
       "losses": 15,
       "win_rate": 95.8,
-      "pnl": 45.75
+      "pnl": 32.28
     }
   }
 }
