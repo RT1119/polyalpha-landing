@@ -810,6 +810,46 @@
       <div id="cat-table"></div>
     </div>
 
+    <!-- V1 vs V2 Comparison -->
+    <div class="glass" style="padding: 24px; margin: 20px 0; border-left: 3px solid #8b5cf6;">
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 6px;">V2 策略優化</div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+        基於 1,153 筆歷史交易分析，移除 12 個負 EV 子類別（亞洲天氣、電競、NBA、S&amp;P 500 等），保留 25 個高勝率子類別。
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto auto;gap:8px 20px;font-size:13px;">
+        <div style="color:var(--text-muted);font-size:11px;">指標</div>
+        <div style="color:var(--text-muted);font-size:11px;text-align:right;">V1（舊）</div>
+        <div style="color:var(--text-muted);font-size:11px;text-align:right;">V2（新）</div>
+
+        <div>交易筆數</div>
+        <div style="text-align:right;">1,153</div>
+        <div style="text-align:right;color:#10b981;font-weight:600;">782</div>
+
+        <div>勝率</div>
+        <div style="text-align:right;">95.8%</div>
+        <div style="text-align:right;color:#10b981;font-weight:600;">98.0%</div>
+
+        <div>總損益</div>
+        <div style="text-align:right;">+$516</div>
+        <div style="text-align:right;color:#10b981;font-weight:600;">+$1,160</div>
+
+        <div>報酬率</div>
+        <div style="text-align:right;">+10.3%</div>
+        <div style="text-align:right;color:#10b981;font-weight:600;">+23.2%</div>
+
+        <div>日均損益</div>
+        <div style="text-align:right;">$12.91/天</div>
+        <div style="text-align:right;color:#10b981;font-weight:600;">$29.00/天</div>
+
+        <div>最大回撤</div>
+        <div style="text-align:right;">8.5%</div>
+        <div style="text-align:right;color:#10b981;font-weight:600;">~5%</div>
+      </div>
+      <div style="margin-top:16px;padding:12px;background:rgba(139,92,246,0.1);border-radius:8px;font-size:12px;color:var(--text-secondary);">
+        V2 移除了 371 筆負 EV 交易，PnL 提升 +$644。筆數減少但每筆品質更高。
+      </div>
+    </div>
+
     <!-- Daily log -->
     <div class="glass" style="padding: 24px; margin: 20px 0; max-height: 300px; overflow-y: auto;">
       <div style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">每日紀錄</div>
