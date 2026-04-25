@@ -1,15 +1,15 @@
 {
-  "total_trades": 1163,
+  "total_trades": 1165,
   "win_rate": 95.9,
-  "total_profit": 553.57,
+  "total_profit": 560.99,
   "days_running": 41,
   "bankroll": 5000,
   "bet_size": 50,
-  "final_equity": 5553.57,
-  "return_pct": 11.1,
-  "daily_avg_pnl": 13.5,
+  "final_equity": 5560.99,
+  "return_pct": 11.2,
+  "daily_avg_pnl": 13.68,
   "max_drawdown_pct": 8.5,
-  "updated_at": "2026-04-25 06:00 UTC",
+  "updated_at": "2026-04-25 07:00 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -325,19 +325,19 @@
     },
     {
       "date": "2026-04-23",
-      "trades": 5,
-      "wins": 5,
+      "trades": 6,
+      "wins": 6,
       "losses": 0,
-      "pnl": 18.55,
-      "equity": 5535.02
+      "pnl": 22.26,
+      "equity": 5538.73
     },
     {
       "date": "2026-04-24",
-      "trades": 5,
-      "wins": 5,
+      "trades": 6,
+      "wins": 6,
       "losses": 0,
-      "pnl": 18.55,
-      "equity": 5553.57
+      "pnl": 22.26,
+      "equity": 5560.99
     }
   ],
   "categories": {
@@ -384,18 +384,18 @@
       "pnl": 274.87
     },
     "politics": {
-      "trades": 75,
-      "wins": 72,
+      "trades": 76,
+      "wins": 73,
       "losses": 3,
-      "win_rate": 96.0,
-      "pnl": 59.13
+      "win_rate": 96.1,
+      "pnl": 62.84
     },
     "sports": {
-      "trades": 50,
-      "wins": 46,
+      "trades": 51,
+      "wins": 47,
       "losses": 4,
-      "win_rate": 92.0,
-      "pnl": -61.35
+      "win_rate": 92.2,
+      "pnl": -57.64
     },
     "tech": {
       "trades": 12,
