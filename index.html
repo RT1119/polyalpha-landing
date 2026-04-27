@@ -739,7 +739,7 @@
       <span class="gradient-text">Polymarket</span>
     </h1>
     <p class="hero-tagline">
-      過去 24 天累積 <strong>1,600+ 筆</strong>歷史交易紀錄。<br>
+      過去 <strong id="hero-days">--</strong> 天累積 <strong id="hero-trades">--</strong> 筆歷史交易紀錄。<br>
       全自動掃描、執行、結算。透過 Telegram 操作。
     </p>
     <a href="https://t.me/polymaker1119_bot" class="cta-btn" target="_blank" rel="noopener">
@@ -1032,6 +1032,10 @@
       document.getElementById('stat-winrate').textContent = s.win_rate + '%';
       document.getElementById('stat-profit').textContent = (s.total_profit >= 0 ? '+$' : '-$') + Math.abs(s.total_profit).toLocaleString();
       document.getElementById('stat-days').textContent = s.days_running + '天';
+
+      // Hero tagline
+      document.getElementById('hero-days').textContent = s.days_running;
+      document.getElementById('hero-trades').textContent = s.total_trades.toLocaleString() + '+';
 
       // Performance summary
       document.getElementById('perf-equity').textContent = '$' + s.final_equity.toLocaleString();
