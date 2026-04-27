@@ -810,6 +810,79 @@
       <div id="cat-table"></div>
     </div>
 
+    <!-- V1 vs V2 Comparison -->
+    <div style="margin: 28px 0;">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:16px;font-weight:700;margin-bottom:4px;">策略升級對比</div>
+        <div style="font-size:12px;color:var(--text-muted);">基於 1,153 筆交易回測，移除 12 個負 EV 類別</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <!-- V1 Card -->
+        <div style="background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.02));border:1px solid rgba(239,68,68,0.2);border-radius:16px;padding:28px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#ef4444;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(239,68,68,0.15);display:flex;align-items:center;justify-content:center;font-size:14px;">V1</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#ef4444;">舊版策略</div>
+              <div style="font-size:11px;color:var(--text-muted);">全類別交易</div>
+            </div>
+          </div>
+          <div style="font-size:32px;font-weight:800;margin-bottom:4px;">+$516</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">總損益</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <div style="font-size:22px;font-weight:700;">95.8%</div>
+              <div style="font-size:11px;color:var(--text-muted);">勝率</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:700;">1,153</div>
+              <div style="font-size:11px;color:var(--text-muted);">交易筆數</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:700;">+10.3%</div>
+              <div style="font-size:11px;color:var(--text-muted);">報酬率</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:700;">$12.91</div>
+              <div style="font-size:11px;color:var(--text-muted);">日均損益</div>
+            </div>
+          </div>
+        </div>
+        <!-- V2 Card -->
+        <div style="background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(16,185,129,0.02));border:1px solid rgba(16,185,129,0.25);border-radius:16px;padding:28px;position:relative;overflow:hidden;box-shadow:0 0 30px rgba(16,185,129,0.08);">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10b981,#06b6d4);"></div>
+          <div style="position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#10b981,#06b6d4);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:99px;letter-spacing:0.5px;">NEW</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(16,185,129,0.15);display:flex;align-items:center;justify-content:center;font-size:14px;">V2</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#10b981;">新版策略</div>
+              <div style="font-size:11px;color:var(--text-muted);">精選高勝率類別</div>
+            </div>
+          </div>
+          <div style="font-size:32px;font-weight:800;color:#10b981;margin-bottom:4px;">+$1,160</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">總損益 <span style="color:#10b981;font-weight:600;">+124%</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <div style="font-size:22px;font-weight:700;color:#10b981;">98.0%</div>
+              <div style="font-size:11px;color:var(--text-muted);">勝率</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:700;">782</div>
+              <div style="font-size:11px;color:var(--text-muted);">交易筆數</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:700;color:#10b981;">+23.2%</div>
+              <div style="font-size:11px;color:var(--text-muted);">報酬率</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:700;color:#10b981;">$29.00</div>
+              <div style="font-size:11px;color:var(--text-muted);">日均損益</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Daily log -->
     <div class="glass" style="padding: 24px; margin: 20px 0; max-height: 300px; overflow-y: auto;">
       <div style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">每日紀錄</div>
