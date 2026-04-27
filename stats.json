@@ -1,15 +1,15 @@
 {
-  "total_trades": 1176,
+  "total_trades": 1177,
   "win_rate": 95.9,
-  "total_profit": 601.8,
-  "days_running": 42,
+  "total_profit": 605.51,
+  "days_running": 43,
   "bankroll": 5000,
   "bet_size": 50,
-  "final_equity": 5601.8,
-  "return_pct": 12.0,
-  "daily_avg_pnl": 14.33,
+  "final_equity": 5605.51,
+  "return_pct": 12.1,
+  "daily_avg_pnl": 14.08,
   "max_drawdown_pct": 8.5,
-  "updated_at": "2026-04-26 23:00 UTC",
+  "updated_at": "2026-04-27 00:00 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -346,6 +346,14 @@
       "losses": 0,
       "pnl": 22.26,
       "equity": 5601.8
+    },
+    {
+      "date": "2026-04-26",
+      "trades": 1,
+      "wins": 1,
+      "losses": 0,
+      "pnl": 3.71,
+      "equity": 5605.51
     }
   ],
   "categories": {
@@ -364,11 +372,11 @@
       "pnl": 89.52
     },
     "esports": {
-      "trades": 80,
-      "wins": 73,
+      "trades": 81,
+      "wins": 74,
       "losses": 7,
-      "win_rate": 91.2,
-      "pnl": -130.51
+      "win_rate": 91.4,
+      "pnl": -126.8
     },
     "finance": {
       "trades": 15,
