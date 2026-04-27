@@ -814,7 +814,7 @@
     <div style="margin: 28px 0;">
       <div style="text-align:center;margin-bottom:20px;">
         <div style="font-size:16px;font-weight:700;margin-bottom:4px;">策略升級對比</div>
-        <div style="font-size:12px;color:var(--text-muted);">基於 1,153 筆交易回測，移除 12 個負 EV 類別</div>
+        <div style="font-size:12px;color:var(--text-muted);" id="v1v2-subtitle">策略升級對比</div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <!-- V1 Card -->
@@ -827,23 +827,23 @@
               <div style="font-size:11px;color:var(--text-muted);">全類別交易</div>
             </div>
           </div>
-          <div style="font-size:32px;font-weight:800;margin-bottom:4px;">+$516</div>
+          <div style="font-size:32px;font-weight:800;margin-bottom:4px;" id="v1-profit">--</div>
           <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">總損益</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div>
-              <div style="font-size:22px;font-weight:700;">95.8%</div>
+              <div style="font-size:22px;font-weight:700;" id="v1-wr">--</div>
               <div style="font-size:11px;color:var(--text-muted);">勝率</div>
             </div>
             <div>
-              <div style="font-size:22px;font-weight:700;">1,153</div>
+              <div style="font-size:22px;font-weight:700;" id="v1-trades">--</div>
               <div style="font-size:11px;color:var(--text-muted);">交易筆數</div>
             </div>
             <div>
-              <div style="font-size:22px;font-weight:700;">+10.3%</div>
+              <div style="font-size:22px;font-weight:700;" id="v1-return">--</div>
               <div style="font-size:11px;color:var(--text-muted);">報酬率</div>
             </div>
             <div>
-              <div style="font-size:22px;font-weight:700;">$12.91</div>
+              <div style="font-size:22px;font-weight:700;" id="v1-daily">--</div>
               <div style="font-size:11px;color:var(--text-muted);">日均損益</div>
             </div>
           </div>
@@ -859,23 +859,23 @@
               <div style="font-size:11px;color:var(--text-muted);">精選高勝率類別</div>
             </div>
           </div>
-          <div style="font-size:32px;font-weight:800;color:#10b981;margin-bottom:4px;">+$1,160</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">總損益 <span style="color:#10b981;font-weight:600;">+124%</span></div>
+          <div style="font-size:32px;font-weight:800;color:#10b981;margin-bottom:4px;" id="v2-profit">--</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">總損益 <span style="color:#10b981;font-weight:600;" id="v2-uplift"></span></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
             <div>
-              <div style="font-size:22px;font-weight:700;color:#10b981;">98.0%</div>
+              <div style="font-size:22px;font-weight:700;color:#10b981;" id="v2-wr">--</div>
               <div style="font-size:11px;color:var(--text-muted);">勝率</div>
             </div>
             <div>
-              <div style="font-size:22px;font-weight:700;">782</div>
+              <div style="font-size:22px;font-weight:700;" id="v2-trades">--</div>
               <div style="font-size:11px;color:var(--text-muted);">交易筆數</div>
             </div>
             <div>
-              <div style="font-size:22px;font-weight:700;color:#10b981;">+23.2%</div>
+              <div style="font-size:22px;font-weight:700;color:#10b981;" id="v2-return">--</div>
               <div style="font-size:11px;color:var(--text-muted);">報酬率</div>
             </div>
             <div>
-              <div style="font-size:22px;font-weight:700;color:#10b981;">$29.00</div>
+              <div style="font-size:22px;font-weight:700;color:#10b981;" id="v2-daily">--</div>
               <div style="font-size:11px;color:var(--text-muted);">日均損益</div>
             </div>
           </div>
@@ -1036,6 +1036,28 @@
       // Hero tagline
       document.getElementById('hero-days').textContent = s.days_running;
       document.getElementById('hero-trades').textContent = s.total_trades.toLocaleString() + '+';
+
+      // V1 vs V2 comparison
+      if (s.v1 && s.v2) {
+        var fmt = function(n) { return (n >= 0 ? '+$' : '-$') + Math.abs(n).toLocaleString(); };
+        document.getElementById('v1-profit').textContent = fmt(s.v1.total_profit);
+        document.getElementById('v1-wr').textContent = s.v1.win_rate + '%';
+        document.getElementById('v1-trades').textContent = s.v1.total_trades.toLocaleString();
+        document.getElementById('v1-return').textContent = (s.v1.return_pct >= 0 ? '+' : '') + s.v1.return_pct + '%';
+        document.getElementById('v1-daily').textContent = '$' + s.v1.daily_avg_pnl;
+
+        document.getElementById('v2-profit').textContent = fmt(s.v2.total_profit);
+        document.getElementById('v2-wr').textContent = s.v2.win_rate + '%';
+        document.getElementById('v2-trades').textContent = s.v2.total_trades.toLocaleString();
+        document.getElementById('v2-return').textContent = (s.v2.return_pct >= 0 ? '+' : '') + s.v2.return_pct + '%';
+        document.getElementById('v2-daily').textContent = '$' + s.v2.daily_avg_pnl;
+
+        var uplift = s.v1.total_profit > 0 ? Math.round((s.v2.total_profit / s.v1.total_profit - 1) * 100) : 0;
+        if (uplift > 0) document.getElementById('v2-uplift').textContent = '+' + uplift + '%';
+
+        document.getElementById('v1v2-subtitle').textContent =
+          '基於 ' + s.v1.total_trades.toLocaleString() + ' 筆交易回測，移除 12 個負 EV 類別';
+      }
 
       // Performance summary
       document.getElementById('perf-equity').textContent = '$' + s.final_equity.toLocaleString();
