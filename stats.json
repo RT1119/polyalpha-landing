@@ -1,15 +1,15 @@
 {
-  "total_trades": 1179,
+  "total_trades": 1180,
   "win_rate": 95.9,
-  "total_profit": 612.93,
+  "total_profit": 616.64,
   "days_running": 43,
   "bankroll": 5000,
   "bet_size": 50,
-  "final_equity": 5612.93,
+  "final_equity": 5616.64,
   "return_pct": 12.3,
-  "daily_avg_pnl": 14.25,
+  "daily_avg_pnl": 14.34,
   "max_drawdown_pct": 8.5,
-  "updated_at": "2026-04-27 06:00 UTC",
+  "updated_at": "2026-04-27 07:00 UTC",
   "daily": [
     {
       "date": "2026-03-15",
@@ -349,20 +349,20 @@
     },
     {
       "date": "2026-04-26",
-      "trades": 3,
-      "wins": 3,
+      "trades": 4,
+      "wins": 4,
       "losses": 0,
-      "pnl": 11.13,
-      "equity": 5612.93
+      "pnl": 14.84,
+      "equity": 5616.64
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 383,
-      "wins": 368,
+      "trades": 384,
+      "wins": 369,
       "losses": 15,
       "win_rate": 96.1,
-      "pnl": 277.57
+      "pnl": 281.28
     },
     "entertainment": {
       "trades": 54,
