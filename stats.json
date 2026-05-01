@@ -1,11 +1,11 @@
 {
-  "total_trades": 1191,
+  "total_trades": 1200,
   "win_rate": 96.0,
-  "total_profit": 657.45,
+  "total_profit": 690.84,
   "days_running": 46,
-  "final_equity": 5657.45,
-  "return_pct": 13.1,
-  "daily_avg_pnl": 14.29,
+  "final_equity": 5690.84,
+  "return_pct": 13.8,
+  "daily_avg_pnl": 15.02,
   "max_drawdown_pct": 8.5,
   "daily": [
     {
@@ -370,20 +370,20 @@
     },
     {
       "date": "2026-04-29",
-      "trades": 1,
-      "wins": 1,
+      "trades": 10,
+      "wins": 10,
       "losses": 0,
-      "pnl": 3.71,
-      "equity": 5657.45
+      "pnl": 37.1,
+      "equity": 5690.84
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 385,
-      "wins": 370,
+      "trades": 386,
+      "wins": 371,
       "losses": 15,
       "win_rate": 96.1,
-      "pnl": 284.99
+      "pnl": 288.7
     },
     "entertainment": {
       "trades": 55,
@@ -400,11 +400,11 @@
       "pnl": -126.8
     },
     "finance": {
-      "trades": 16,
-      "wins": 16,
+      "trades": 21,
+      "wins": 21,
       "losses": 0,
       "win_rate": 100.0,
-      "pnl": 49.08
+      "pnl": 67.63
     },
     "health": {
       "trades": 1,
@@ -414,11 +414,11 @@
       "pnl": 3.71
     },
     "other": {
-      "trades": 153,
-      "wins": 151,
+      "trades": 156,
+      "wins": 154,
       "losses": 2,
       "win_rate": 98.7,
-      "pnl": 308.26
+      "pnl": 319.39
     },
     "politics": {
       "trades": 81,
@@ -451,19 +451,19 @@
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-04-30 04:00 UTC",
+  "updated_at": "2026-05-01 04:00 UTC",
   "v1": {
-    "total_trades": 1191,
+    "total_trades": 1200,
     "win_rate": 96.0,
-    "total_profit": 657.45,
-    "return_pct": 13.1,
-    "daily_avg_pnl": 14.29
+    "total_profit": 690.84,
+    "return_pct": 13.8,
+    "daily_avg_pnl": 15.02
   },
   "v2": {
-    "total_trades": 871,
+    "total_trades": 880,
     "win_rate": 97.5,
-    "total_profit": 1200.42,
-    "return_pct": 24.0,
-    "daily_avg_pnl": 26.1
+    "total_profit": 1233.81,
+    "return_pct": 24.7,
+    "daily_avg_pnl": 26.82
   }
 }
