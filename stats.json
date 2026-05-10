@@ -1,11 +1,11 @@
 {
-  "total_trades": 1306,
+  "total_trades": 1312,
   "win_rate": 92.0,
-  "total_profit": -1968.11,
+  "total_profit": -1952.02,
   "days_running": 55,
-  "final_equity": 3031.89,
-  "return_pct": -39.4,
-  "daily_avg_pnl": -35.78,
+  "final_equity": 3047.98,
+  "return_pct": -39.0,
+  "daily_avg_pnl": -35.49,
   "max_drawdown_pct": 47.3,
   "daily": [
     {
@@ -434,28 +434,28 @@
     },
     {
       "date": "2026-05-07",
-      "trades": 13,
-      "wins": 13,
+      "trades": 14,
+      "wins": 14,
       "losses": 0,
-      "pnl": 36.33,
-      "equity": 3029.55
+      "pnl": 40.04,
+      "equity": 3033.26
     },
     {
       "date": "2026-05-08",
-      "trades": 1,
-      "wins": 1,
+      "trades": 6,
+      "wins": 6,
       "losses": 0,
-      "pnl": 2.34,
-      "equity": 3031.89
+      "pnl": 14.72,
+      "equity": 3047.98
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 423,
-      "wins": 395,
+      "trades": 428,
+      "wins": 400,
       "losses": 28,
-      "win_rate": 93.4,
-      "pnl": -276.65
+      "win_rate": 93.5,
+      "pnl": -264.27
     },
     "entertainment": {
       "trades": 58,
@@ -493,11 +493,11 @@
       "pnl": 273.67
     },
     "politics": {
-      "trades": 85,
-      "wins": 81,
+      "trades": 86,
+      "wins": 82,
       "losses": 4,
       "win_rate": 95.3,
-      "pnl": 42.86
+      "pnl": 46.57
     },
     "sports": {
       "trades": 54,
@@ -523,19 +523,19 @@
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-05-09 04:00 UTC",
+  "updated_at": "2026-05-10 04:00 UTC",
   "v1": {
-    "total_trades": 1306,
+    "total_trades": 1312,
     "win_rate": 92.0,
-    "total_profit": -1968.11,
-    "return_pct": -39.4,
-    "daily_avg_pnl": -35.78
+    "total_profit": -1952.02,
+    "return_pct": -39.0,
+    "daily_avg_pnl": -35.49
   },
   "v2": {
-    "total_trades": 966,
+    "total_trades": 972,
     "win_rate": 93.8,
-    "total_profit": -487.33,
-    "return_pct": -9.7,
-    "daily_avg_pnl": -8.86
+    "total_profit": -471.23,
+    "return_pct": -9.4,
+    "daily_avg_pnl": -8.57
   }
 }
