@@ -1,12 +1,12 @@
 {
-  "total_trades": 1330,
-  "win_rate": 92.1,
-  "total_profit": -1885.24,
-  "days_running": 59,
-  "final_equity": 3114.76,
-  "return_pct": -37.7,
-  "daily_avg_pnl": -31.95,
-  "max_drawdown_pct": 47.3,
+  "total_trades": 1347,
+  "win_rate": 92.2,
+  "total_profit": -1823.77,
+  "days_running": 62,
+  "final_equity": 3176.23,
+  "return_pct": -36.5,
+  "daily_avg_pnl": -29.42,
+  "max_drawdown_pct": 47.2,
   "daily": [
     {
       "date": "2026-03-15",
@@ -226,11 +226,11 @@
     },
     {
       "date": "2026-04-11",
-      "trades": 19,
-      "wins": 19,
+      "trades": 21,
+      "wins": 21,
       "losses": 0,
-      "pnl": 70.49,
-      "equity": 5151.71
+      "pnl": 77.91,
+      "equity": 5159.13
     },
     {
       "date": "2026-04-12",
@@ -238,7 +238,7 @@
       "wins": 8,
       "losses": 1,
       "pnl": -19.61,
-      "equity": 5132.1
+      "equity": 5139.52
     },
     {
       "date": "2026-04-13",
@@ -246,7 +246,7 @@
       "wins": 12,
       "losses": 1,
       "pnl": -4.77,
-      "equity": 5127.33
+      "equity": 5134.75
     },
     {
       "date": "2026-04-14",
@@ -254,7 +254,7 @@
       "wins": 13,
       "losses": 0,
       "pnl": 48.23,
-      "equity": 5175.56
+      "equity": 5182.98
     },
     {
       "date": "2026-04-15",
@@ -262,7 +262,7 @@
       "wins": 6,
       "losses": 0,
       "pnl": 22.26,
-      "equity": 5197.82
+      "equity": 5205.24
     },
     {
       "date": "2026-04-16",
@@ -270,7 +270,7 @@
       "wins": 9,
       "losses": 0,
       "pnl": 33.39,
-      "equity": 5231.21
+      "equity": 5238.63
     },
     {
       "date": "2026-04-17",
@@ -278,7 +278,7 @@
       "wins": 8,
       "losses": 0,
       "pnl": 29.68,
-      "equity": 5260.89
+      "equity": 5268.31
     },
     {
       "date": "2026-04-18",
@@ -286,7 +286,7 @@
       "wins": 14,
       "losses": 0,
       "pnl": 51.94,
-      "equity": 5312.83
+      "equity": 5320.25
     },
     {
       "date": "2026-04-19",
@@ -294,7 +294,7 @@
       "wins": 7,
       "losses": 0,
       "pnl": 25.97,
-      "equity": 5338.8
+      "equity": 5346.22
     },
     {
       "date": "2026-04-20",
@@ -302,7 +302,7 @@
       "wins": 9,
       "losses": 0,
       "pnl": 33.39,
-      "equity": 5372.19
+      "equity": 5379.61
     },
     {
       "date": "2026-04-21",
@@ -310,7 +310,7 @@
       "wins": 5,
       "losses": 1,
       "pnl": -30.74,
-      "equity": 5341.45
+      "equity": 5348.87
     },
     {
       "date": "2026-04-22",
@@ -318,7 +318,7 @@
       "wins": 8,
       "losses": 0,
       "pnl": 29.68,
-      "equity": 5371.13
+      "equity": 5378.55
     },
     {
       "date": "2026-04-23",
@@ -326,7 +326,7 @@
       "wins": 6,
       "losses": 0,
       "pnl": 22.26,
-      "equity": 5393.39
+      "equity": 5400.81
     },
     {
       "date": "2026-04-24",
@@ -334,7 +334,7 @@
       "wins": 10,
       "losses": 0,
       "pnl": 37.1,
-      "equity": 5430.49
+      "equity": 5437.91
     },
     {
       "date": "2026-04-25",
@@ -342,7 +342,7 @@
       "wins": 8,
       "losses": 0,
       "pnl": 29.68,
-      "equity": 5460.17
+      "equity": 5467.59
     },
     {
       "date": "2026-04-26",
@@ -350,7 +350,7 @@
       "wins": 6,
       "losses": 0,
       "pnl": 22.26,
-      "equity": 5482.43
+      "equity": 5489.85
     },
     {
       "date": "2026-04-27",
@@ -358,7 +358,7 @@
       "wins": 2,
       "losses": 0,
       "pnl": 7.42,
-      "equity": 5489.85
+      "equity": 5497.27
     },
     {
       "date": "2026-04-28",
@@ -366,15 +366,15 @@
       "wins": 4,
       "losses": 0,
       "pnl": 14.84,
-      "equity": 5504.69
+      "equity": 5512.11
     },
     {
       "date": "2026-04-29",
-      "trades": 16,
-      "wins": 16,
+      "trades": 17,
+      "wins": 17,
       "losses": 0,
-      "pnl": 59.36,
-      "equity": 5564.05
+      "pnl": 63.07,
+      "equity": 5575.18
     },
     {
       "date": "2026-04-30",
@@ -382,7 +382,7 @@
       "wins": 5,
       "losses": 0,
       "pnl": 18.55,
-      "equity": 5582.6
+      "equity": 5593.73
     },
     {
       "date": "2026-05-01",
@@ -390,7 +390,7 @@
       "wins": 3,
       "losses": 0,
       "pnl": 11.13,
-      "equity": 5593.73
+      "equity": 5604.86
     },
     {
       "date": "2026-05-02",
@@ -398,7 +398,7 @@
       "wins": 7,
       "losses": 0,
       "pnl": 25.97,
-      "equity": 5619.7
+      "equity": 5630.83
     },
     {
       "date": "2026-05-03",
@@ -406,7 +406,7 @@
       "wins": 4,
       "losses": 0,
       "pnl": 13.24,
-      "equity": 5632.94
+      "equity": 5644.07
     },
     {
       "date": "2026-05-04",
@@ -414,7 +414,7 @@
       "wins": 1,
       "losses": 0,
       "pnl": 3.71,
-      "equity": 5636.65
+      "equity": 5647.78
     },
     {
       "date": "2026-05-05",
@@ -422,7 +422,7 @@
       "wins": 6,
       "losses": 0,
       "pnl": 22.26,
-      "equity": 5658.91
+      "equity": 5670.04
     },
     {
       "date": "2026-05-06",
@@ -430,7 +430,7 @@
       "wins": 3,
       "losses": 54,
       "pnl": -2665.69,
-      "equity": 2993.22
+      "equity": 3004.35
     },
     {
       "date": "2026-05-07",
@@ -438,7 +438,7 @@
       "wins": 14,
       "losses": 0,
       "pnl": 40.04,
-      "equity": 3033.26
+      "equity": 3044.39
     },
     {
       "date": "2026-05-08",
@@ -446,7 +446,7 @@
       "wins": 6,
       "losses": 0,
       "pnl": 14.72,
-      "equity": 3047.98
+      "equity": 3059.11
     },
     {
       "date": "2026-05-09",
@@ -454,7 +454,7 @@
       "wins": 3,
       "losses": 0,
       "pnl": 11.13,
-      "equity": 3059.11
+      "equity": 3070.24
     },
     {
       "date": "2026-05-10",
@@ -462,15 +462,15 @@
       "wins": 7,
       "losses": 0,
       "pnl": 25.97,
-      "equity": 3085.08
+      "equity": 3096.21
     },
     {
       "date": "2026-05-11",
-      "trades": 7,
-      "wins": 7,
+      "trades": 9,
+      "wins": 9,
       "losses": 0,
-      "pnl": 25.97,
-      "equity": 3111.05
+      "pnl": 33.39,
+      "equity": 3129.6
     },
     {
       "date": "2026-05-12",
@@ -478,16 +478,32 @@
       "wins": 1,
       "losses": 0,
       "pnl": 3.71,
-      "equity": 3114.76
+      "equity": 3133.31
+    },
+    {
+      "date": "2026-05-14",
+      "trades": 9,
+      "wins": 9,
+      "losses": 0,
+      "pnl": 31.79,
+      "equity": 3165.1
+    },
+    {
+      "date": "2026-05-15",
+      "trades": 3,
+      "wins": 3,
+      "losses": 0,
+      "pnl": 11.13,
+      "equity": 3176.23
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 439,
-      "wins": 411,
+      "trades": 445,
+      "wins": 417,
       "losses": 28,
-      "win_rate": 93.6,
-      "pnl": -223.46
+      "win_rate": 93.7,
+      "pnl": -202.8
     },
     "entertainment": {
       "trades": 59,
@@ -518,25 +534,25 @@
       "pnl": 3.71
     },
     "other": {
-      "trades": 175,
-      "wins": 171,
+      "trades": 179,
+      "wins": 175,
       "losses": 4,
-      "win_rate": 97.7,
-      "pnl": 277.38
+      "win_rate": 97.8,
+      "pnl": 292.22
     },
     "politics": {
-      "trades": 89,
-      "wins": 85,
+      "trades": 93,
+      "wins": 89,
       "losses": 4,
-      "win_rate": 95.5,
-      "pnl": 57.7
+      "win_rate": 95.7,
+      "pnl": 72.54
     },
     "sports": {
-      "trades": 56,
-      "wins": 52,
+      "trades": 59,
+      "wins": 55,
       "losses": 4,
-      "win_rate": 92.9,
-      "pnl": -39.09
+      "win_rate": 93.2,
+      "pnl": -27.96
     },
     "tech": {
       "trades": 12,
@@ -555,19 +571,19 @@
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-05-15 04:00 UTC",
+  "updated_at": "2026-05-20 04:00 UTC",
   "v1": {
-    "total_trades": 1330,
-    "win_rate": 92.1,
-    "total_profit": -1885.24,
-    "return_pct": -37.7,
-    "daily_avg_pnl": -31.95
+    "total_trades": 1347,
+    "win_rate": 92.2,
+    "total_profit": -1823.77,
+    "return_pct": -36.5,
+    "daily_avg_pnl": -29.42
   },
   "v2": {
-    "total_trades": 990,
-    "win_rate": 93.9,
-    "total_profit": -404.45,
-    "return_pct": -8.1,
-    "daily_avg_pnl": -6.86
+    "total_trades": 1006,
+    "win_rate": 94.0,
+    "total_profit": -346.7,
+    "return_pct": -6.9,
+    "daily_avg_pnl": -5.59
   }
 }
