@@ -1,11 +1,11 @@
 {
-  "total_trades": 1359,
-  "win_rate": 92.3,
-  "total_profit": -1779.25,
-  "days_running": 67,
-  "final_equity": 3220.75,
-  "return_pct": -35.6,
-  "daily_avg_pnl": -26.56,
+  "total_trades": 1366,
+  "win_rate": 92.2,
+  "total_profit": -1806.28,
+  "days_running": 69,
+  "final_equity": 3193.72,
+  "return_pct": -36.1,
+  "daily_avg_pnl": -26.18,
   "max_drawdown_pct": 47.2,
   "daily": [
     {
@@ -506,27 +506,43 @@
     },
     {
       "date": "2026-05-20",
-      "trades": 6,
-      "wins": 6,
+      "trades": 7,
+      "wins": 7,
       "losses": 0,
-      "pnl": 22.26,
-      "equity": 3220.75
+      "pnl": 25.97,
+      "equity": 3224.46
+    },
+    {
+      "date": "2026-05-21",
+      "trades": 5,
+      "wins": 4,
+      "losses": 1,
+      "pnl": -34.45,
+      "equity": 3190.01
+    },
+    {
+      "date": "2026-05-22",
+      "trades": 1,
+      "wins": 1,
+      "losses": 0,
+      "pnl": 3.71,
+      "equity": 3193.72
     }
   ],
   "categories": {
     "crypto": {
-      "trades": 450,
-      "wins": 422,
+      "trades": 452,
+      "wins": 424,
       "losses": 28,
       "win_rate": 93.8,
-      "pnl": -184.25
+      "pnl": -176.83
     },
     "entertainment": {
-      "trades": 62,
-      "wins": 61,
+      "trades": 63,
+      "wins": 62,
       "losses": 1,
       "win_rate": 98.4,
-      "pnl": 119.2
+      "pnl": 122.91
     },
     "esports": {
       "trades": 81,
@@ -550,18 +566,18 @@
       "pnl": 3.71
     },
     "other": {
-      "trades": 182,
-      "wins": 178,
+      "trades": 184,
+      "wins": 180,
       "losses": 4,
       "win_rate": 97.8,
-      "pnl": 303.35
+      "pnl": 310.77
     },
     "politics": {
-      "trades": 94,
-      "wins": 90,
-      "losses": 4,
-      "win_rate": 95.7,
-      "pnl": 76.25
+      "trades": 96,
+      "wins": 91,
+      "losses": 5,
+      "win_rate": 94.8,
+      "pnl": 30.67
     },
     "sports": {
       "trades": 59,
@@ -587,19 +603,19 @@
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-05-22 04:00 UTC",
+  "updated_at": "2026-05-23 04:00 UTC",
   "v1": {
-    "total_trades": 1359,
-    "win_rate": 92.3,
-    "total_profit": -1779.25,
-    "return_pct": -35.6,
-    "daily_avg_pnl": -26.56
+    "total_trades": 1366,
+    "win_rate": 92.2,
+    "total_profit": -1806.28,
+    "return_pct": -36.1,
+    "daily_avg_pnl": -26.18
   },
   "v2": {
-    "total_trades": 1018,
-    "win_rate": 94.1,
-    "total_profit": -302.18,
-    "return_pct": -6.0,
-    "daily_avg_pnl": -4.51
+    "total_trades": 1025,
+    "win_rate": 94.0,
+    "total_profit": -329.21,
+    "return_pct": -6.6,
+    "daily_avg_pnl": -4.77
   }
 }
