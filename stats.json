@@ -1,12 +1,12 @@
 {
-  "total_trades": 1425,
-  "win_rate": 90.4,
-  "total_profit": -3230.39,
-  "days_running": 77,
-  "final_equity": 1769.61,
-  "return_pct": -64.6,
-  "daily_avg_pnl": -41.95,
-  "max_drawdown_pct": 68.8,
+  "total_trades": 1431,
+  "win_rate": 90.1,
+  "total_profit": -3473.13,
+  "days_running": 78,
+  "final_equity": 1526.87,
+  "return_pct": -69.5,
+  "daily_avg_pnl": -44.53,
+  "max_drawdown_pct": 73.1,
   "daily": [
     {
       "date": "2026-03-15",
@@ -578,19 +578,27 @@
     },
     {
       "date": "2026-05-29",
-      "trades": 5,
-      "wins": 0,
-      "losses": 5,
-      "pnl": -246.45,
-      "equity": 1868.19
+      "trades": 9,
+      "wins": 1,
+      "losses": 8,
+      "pnl": -390.61,
+      "equity": 1724.03
     },
     {
       "date": "2026-05-30",
-      "trades": 2,
+      "trades": 3,
       "wins": 0,
-      "losses": 2,
-      "pnl": -98.58,
-      "equity": 1769.61
+      "losses": 3,
+      "pnl": -147.87,
+      "equity": 1576.16
+    },
+    {
+      "date": "2026-05-31",
+      "trades": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -49.29,
+      "equity": 1526.87
     }
   ],
   "categories": {
@@ -658,28 +666,28 @@
       "pnl": -14.75
     },
     "weather": {
-      "trades": 427,
-      "wins": 345,
-      "losses": 82,
-      "win_rate": 80.8,
-      "pnl": -3261.87
+      "trades": 433,
+      "wins": 346,
+      "losses": 87,
+      "win_rate": 79.9,
+      "pnl": -3504.61
     }
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-06-01 04:00 UTC",
+  "updated_at": "2026-06-02 04:00 UTC",
   "v1": {
-    "total_trades": 1425,
-    "win_rate": 90.4,
-    "total_profit": -3230.39,
-    "return_pct": -64.6,
-    "daily_avg_pnl": -41.95
+    "total_trades": 1431,
+    "win_rate": 90.1,
+    "total_profit": -3473.13,
+    "return_pct": -69.5,
+    "daily_avg_pnl": -44.53
   },
   "v2": {
-    "total_trades": 1078,
-    "win_rate": 91.9,
-    "total_profit": -1510.58,
-    "return_pct": -30.2,
-    "daily_avg_pnl": -19.62
+    "total_trades": 1083,
+    "win_rate": 91.6,
+    "total_profit": -1704.03,
+    "return_pct": -34.1,
+    "daily_avg_pnl": -22.13
   }
 }
