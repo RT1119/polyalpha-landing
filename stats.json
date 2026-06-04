@@ -1,12 +1,12 @@
 {
-  "total_trades": 1446,
-  "win_rate": 89.3,
-  "total_profit": -4053.48,
-  "days_running": 79,
-  "final_equity": 946.52,
-  "return_pct": -81.1,
-  "daily_avg_pnl": -51.31,
-  "max_drawdown_pct": 83.3,
+  "total_trades": 1461,
+  "win_rate": 88.6,
+  "total_profit": -4686.83,
+  "days_running": 80,
+  "final_equity": 313.17,
+  "return_pct": -93.7,
+  "daily_avg_pnl": -58.59,
+  "max_drawdown_pct": 94.5,
   "daily": [
     {
       "date": "2026-03-15",
@@ -594,19 +594,27 @@
     },
     {
       "date": "2026-05-31",
-      "trades": 8,
-      "wins": 3,
-      "losses": 5,
-      "pnl": -235.32,
-      "equity": 995.81
+      "trades": 15,
+      "wins": 5,
+      "losses": 10,
+      "pnl": -474.35,
+      "equity": 756.78
     },
     {
       "date": "2026-06-01",
+      "trades": 8,
+      "wins": 0,
+      "losses": 8,
+      "pnl": -394.32,
+      "equity": 362.46
+    },
+    {
+      "date": "2026-06-02",
       "trades": 1,
       "wins": 0,
       "losses": 1,
       "pnl": -49.29,
-      "equity": 946.52
+      "equity": 313.17
     }
   ],
   "categories": {
@@ -674,28 +682,28 @@
       "pnl": -14.75
     },
     "weather": {
-      "trades": 448,
-      "wins": 349,
-      "losses": 99,
-      "win_rate": 77.9,
-      "pnl": -4084.96
+      "trades": 463,
+      "wins": 351,
+      "losses": 112,
+      "win_rate": 75.8,
+      "pnl": -4718.31
     }
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-06-03 04:00 UTC",
+  "updated_at": "2026-06-04 04:00 UTC",
   "v1": {
-    "total_trades": 1446,
-    "win_rate": 89.3,
-    "total_profit": -4053.48,
-    "return_pct": -81.1,
-    "daily_avg_pnl": -51.31
+    "total_trades": 1461,
+    "win_rate": 88.6,
+    "total_profit": -4686.83,
+    "return_pct": -93.7,
+    "daily_avg_pnl": -58.59
   },
   "v2": {
-    "total_trades": 1097,
-    "win_rate": 90.6,
-    "total_profit": -2288.09,
-    "return_pct": -45.8,
-    "daily_avg_pnl": -28.96
+    "total_trades": 1112,
+    "win_rate": 89.6,
+    "total_profit": -2921.44,
+    "return_pct": -58.4,
+    "daily_avg_pnl": -36.52
   }
 }
