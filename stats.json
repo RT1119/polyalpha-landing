@@ -1,12 +1,12 @@
 {
-  "total_trades": 1569,
-  "win_rate": 82.9,
-  "total_profit": -9694.49,
-  "days_running": 87,
-  "final_equity": -4694.49,
-  "return_pct": -193.9,
-  "daily_avg_pnl": -111.43,
-  "max_drawdown_pct": 182.8,
+  "total_trades": 1582,
+  "win_rate": 82.4,
+  "total_profit": -10176.91,
+  "days_running": 89,
+  "final_equity": -5176.91,
+  "return_pct": -203.5,
+  "daily_avg_pnl": -114.35,
+  "max_drawdown_pct": 191.3,
   "daily": [
     {
       "date": "2026-03-15",
@@ -666,11 +666,19 @@
     },
     {
       "date": "2026-06-09",
-      "trades": 6,
+      "trades": 18,
+      "wins": 3,
+      "losses": 15,
+      "pnl": -729.58,
+      "equity": -5180.62
+    },
+    {
+      "date": "2026-06-11",
+      "trades": 1,
       "wins": 1,
-      "losses": 5,
-      "pnl": -243.45,
-      "equity": -4694.49
+      "losses": 0,
+      "pnl": 3.71,
+      "equity": -5176.91
     }
   ],
   "categories": {
@@ -738,28 +746,28 @@
       "pnl": -14.75
     },
     "weather": {
-      "trades": 570,
-      "wins": 356,
-      "losses": 214,
-      "win_rate": 62.5,
-      "pnl": -9728.05
+      "trades": 583,
+      "wins": 359,
+      "losses": 224,
+      "win_rate": 61.6,
+      "pnl": -10210.47
     }
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-06-11 04:00 UTC",
+  "updated_at": "2026-06-12 04:00 UTC",
   "v1": {
-    "total_trades": 1569,
-    "win_rate": 82.9,
-    "total_profit": -9694.49,
-    "return_pct": -193.9,
-    "daily_avg_pnl": -111.43
+    "total_trades": 1582,
+    "win_rate": 82.4,
+    "total_profit": -10176.91,
+    "return_pct": -203.5,
+    "daily_avg_pnl": -114.35
   },
   "v2": {
-    "total_trades": 1208,
-    "win_rate": 82.7,
-    "total_profit": -7494.99,
-    "return_pct": -149.9,
-    "daily_avg_pnl": -86.15
+    "total_trades": 1220,
+    "win_rate": 82.1,
+    "total_profit": -7928.12,
+    "return_pct": -158.6,
+    "daily_avg_pnl": -89.08
   }
 }
