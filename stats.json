@@ -1,12 +1,12 @@
 {
-  "total_trades": 1775,
-  "win_rate": 75.5,
-  "total_profit": -17728.88,
+  "total_trades": 1793,
+  "win_rate": 75.0,
+  "total_profit": -18351.1,
   "days_running": 101,
-  "final_equity": -12728.88,
-  "return_pct": -354.6,
-  "daily_avg_pnl": -175.53,
-  "max_drawdown_pct": 324.4,
+  "final_equity": -13351.1,
+  "return_pct": -367.0,
+  "daily_avg_pnl": -181.69,
+  "max_drawdown_pct": 335.2,
   "daily": [
     {
       "date": "2026-03-15",
@@ -770,19 +770,19 @@
     },
     {
       "date": "2026-06-22",
-      "trades": 3,
-      "wins": 1,
-      "losses": 2,
-      "pnl": -94.87,
-      "equity": -12732.59
+      "trades": 16,
+      "wins": 3,
+      "losses": 13,
+      "pnl": -629.64,
+      "equity": -13267.36
     },
     {
       "date": "2026-06-23",
-      "trades": 1,
-      "wins": 1,
-      "losses": 0,
-      "pnl": 3.71,
-      "equity": -12728.88
+      "trades": 6,
+      "wins": 4,
+      "losses": 2,
+      "pnl": -83.74,
+      "equity": -13351.1
     }
   ],
   "categories": {
@@ -850,28 +850,28 @@
       "pnl": -14.75
     },
     "weather": {
-      "trades": 772,
-      "wins": 392,
-      "losses": 380,
-      "win_rate": 50.8,
-      "pnl": -17777.28
+      "trades": 790,
+      "wins": 397,
+      "losses": 393,
+      "win_rate": 50.3,
+      "pnl": -18399.5
     }
   },
   "bankroll": 5000,
   "bet_size": 50,
-  "updated_at": "2026-06-24 04:00 UTC",
+  "updated_at": "2026-06-25 04:00 UTC",
   "v1": {
-    "total_trades": 1775,
-    "win_rate": 75.5,
-    "total_profit": -17728.88,
-    "return_pct": -354.6,
-    "daily_avg_pnl": -175.53
+    "total_trades": 1793,
+    "win_rate": 75.0,
+    "total_profit": -18351.1,
+    "return_pct": -367.0,
+    "daily_avg_pnl": -181.69
   },
   "v2": {
-    "total_trades": 1409,
-    "win_rate": 73.7,
-    "total_profit": -15335.93,
-    "return_pct": -306.7,
-    "daily_avg_pnl": -151.84
+    "total_trades": 1427,
+    "win_rate": 73.1,
+    "total_profit": -15958.15,
+    "return_pct": -319.2,
+    "daily_avg_pnl": -158.0
   }
 }
